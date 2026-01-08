@@ -1,67 +1,84 @@
-
 import { useState } from 'react';
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from '@/components/ui/tooltip';
 import SectionHeading from '@/components/SectionHeading';
 import ScrollReveal from '@/components/ScrollReveal';
 
 interface Technology {
   name: string;
   icon: string;
-  category: string;
+  category:
+    | 'programming'
+    | 'web'
+    | 'database'
+    | 'data'
+    | 'cloud'
+    | 'other';
   proficiency: 'beginner' | 'intermediate' | 'advanced' | 'expert';
 }
 
 const TechStackSection = () => {
-  const [activeCategory, setActiveCategory] = useState<string>('all');
-  
+  const [activeCategory, setActiveCategory] = useState<
+    | 'all'
+    | 'programming'
+    | 'web'
+    | 'database'
+    | 'data'
+    | 'cloud'
+    | 'other'
+  >('all');
+
   const technologies: Technology[] = [
-    // Frontend
-    { name: 'HTML5', icon: '🌐', category: 'frontend', proficiency: 'expert' },
-    { name: 'CSS3', icon: '🎨', category: 'frontend', proficiency: 'expert' },
-    { name: 'JavaScript', icon: '📜', category: 'frontend', proficiency: 'expert' },
-    { name: 'TypeScript', icon: '🔷', category: 'frontend', proficiency: 'advanced' },
-    { name: 'React', icon: '⚛️', category: 'frontend', proficiency: 'expert' },
-    { name: 'TailwindCSS', icon: '🌊', category: 'frontend', proficiency: 'advanced' },
-    
-    // Backend
-    { name: 'Node.js', icon: '🟢', category: 'backend', proficiency: 'advanced' },
-    { name: 'Express', icon: '🚂', category: 'backend', proficiency: 'advanced' },
-    { name: 'Flask', icon: '🧪', category: 'backend', proficiency: 'beginner' },
-    { name: 'PHP', icon: '🐘', category: 'backend', proficiency: 'intermediate' },
-    
-    // Database
-    { name: 'MongoDB', icon: '🍃', category: 'database', proficiency: 'advanced' },
+    // Programming Languages
+    { name: 'Python', icon: '🐍', category: 'programming', proficiency: 'advanced' },
+    { name: 'Java', icon: '☕', category: 'programming', proficiency: 'intermediate' },
+    { name: 'C', icon: '💻', category: 'programming', proficiency: 'intermediate' },
+
+    // Web Technologies
+    { name: 'HTML5', icon: '🌐', category: 'web', proficiency: 'expert' },
+    { name: 'CSS3', icon: '🎨', category: 'web', proficiency: 'expert' },
+    { name: 'JavaScript', icon: '📜', category: 'web', proficiency: 'advanced' },
+    { name: 'MERN Stack', icon: '⚛️', category: 'web', proficiency: 'advanced' },
+
+    // Databases
     { name: 'MySQL', icon: '🐬', category: 'database', proficiency: 'advanced' },
-    { name: 'PostgreSQL', icon: '🐘', category: 'database', proficiency: 'intermediate' },
-    { name: 'Firebase', icon: '🔥', category: 'database', proficiency: 'advanced' },
-    
-    // DevOps
-    { name: 'Git', icon: '📝', category: 'devops', proficiency: 'advanced' },
-    { name: 'Docker', icon: '🐳', category: 'devops', proficiency: 'beginner' },
-    { name: 'Google Cloud', icon: '☁️', category: 'devops', proficiency: 'advanced' },
-    { name: 'CI/CD', icon: '🔄', category: 'devops', proficiency: 'intermediate' },
-    { name: 'Linux', icon: '🐧', category: 'devops', proficiency: 'advanced' },
-    
-    // Tools
-    { name: 'Figma', icon: '🎨', category: 'tools', proficiency: 'advanced' },
-    { name: 'Adobe XD', icon: '✒️', category: 'tools', proficiency: 'intermediate' },
-    { name: 'VS Code', icon: '📝', category: 'tools', proficiency: 'expert' },
-    { name: 'Postman', icon: '📮', category: 'tools', proficiency: 'advanced' },
+    { name: 'MongoDB', icon: '🍃', category: 'database', proficiency: 'advanced' },
+
+    // Data & Analysis Tools
+    { name: 'Excel', icon: '📊', category: 'data', proficiency: 'advanced' },
+    { name: 'Power BI', icon: '📈', category: 'data', proficiency: 'advanced' },
+    { name: 'Tableau', icon: '📉', category: 'data', proficiency: 'advanced' },
+    { name: 'Power Query', icon: '🔍', category: 'data', proficiency: 'intermediate' },
+
+    // Cloud
+    { name: 'Google Cloud Platform (GCP)', icon: '☁️', category: 'cloud', proficiency: 'intermediate' },
+    { name: 'AWS', icon: '🌩️', category: 'cloud', proficiency: 'beginner' },
+
+    // Others
+    { name: 'Git', icon: '📝', category: 'other', proficiency: 'advanced' },
+    { name: 'Linux', icon: '🐧', category: 'other', proficiency: 'advanced' },
+    { name: 'Windows', icon: '🪟', category: 'other', proficiency: 'expert' },
   ];
-  
-  const filteredTechnologies = activeCategory === 'all' 
-    ? technologies 
-    : technologies.filter(tech => tech.category === activeCategory);
-  
+
+  const filteredTechnologies =
+    activeCategory === 'all'
+      ? technologies
+      : technologies.filter(tech => tech.category === activeCategory);
+
   const categories = [
     { id: 'all', name: 'All' },
-    { id: 'frontend', name: 'Frontend' },
-    { id: 'backend', name: 'Backend' },
-    { id: 'database', name: 'Database' },
-    { id: 'devops', name: 'DevOps' },
-    { id: 'tools', name: 'Tools' },
+    { id: 'programming', name: 'Programming Languages' },
+    { id: 'web', name: 'Web Technologies' },
+    { id: 'database', name: 'Databases' },
+    { id: 'data', name: 'Data & Analysis Tools' },
+    { id: 'cloud', name: 'Cloud' },
+    { id: 'other', name: 'Others' },
   ];
-  
+
   const getProficiencyColor = (proficiency: string) => {
     switch (proficiency) {
       case 'beginner':
@@ -86,13 +103,13 @@ const TechStackSection = () => {
             subtitle="Technologies I work with"
           />
         </ScrollReveal>
-        
+
         <ScrollReveal animation="fade-in-up" delay={100}>
           <div className="flex flex-wrap justify-center gap-4 mb-12">
-            {categories.map((category) => (
+            {categories.map(category => (
               <button
                 key={category.id}
-                onClick={() => setActiveCategory(category.id)}
+                onClick={() => setActiveCategory(category.id as any)}
                 className={`px-4 py-2 rounded-md transition-all ${
                   activeCategory === category.id
                     ? 'bg-primary text-white'
@@ -104,7 +121,7 @@ const TechStackSection = () => {
             ))}
           </div>
         </ScrollReveal>
-        
+
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6">
           {filteredTechnologies.map((tech, index) => (
             <ScrollReveal
@@ -116,7 +133,11 @@ const TechStackSection = () => {
                 <Tooltip>
                   <TooltipTrigger asChild>
                     <div className="card-hover bg-card rounded-lg p-4 flex flex-col items-center justify-center text-center h-32 relative">
-                      <div className={`absolute top-2 right-2 h-3 w-3 rounded-full ${getProficiencyColor(tech.proficiency)}`}></div>
+                      <div
+                        className={`absolute top-2 right-2 h-3 w-3 rounded-full ${getProficiencyColor(
+                          tech.proficiency
+                        )}`}
+                      />
                       <div className="text-4xl mb-2">{tech.icon}</div>
                       <h3 className="font-medium text-sm">{tech.name}</h3>
                     </div>
@@ -132,23 +153,23 @@ const TechStackSection = () => {
             </ScrollReveal>
           ))}
         </div>
-        
+
         <div className="mt-8 flex justify-center">
           <div className="flex items-center gap-8 bg-card rounded-lg p-4">
             <div className="flex items-center gap-2">
-              <span className="h-3 w-3 rounded-full bg-blue-500"></span>
+              <span className="h-3 w-3 rounded-full bg-blue-500" />
               <span className="text-sm">Beginner</span>
             </div>
             <div className="flex items-center gap-2">
-              <span className="h-3 w-3 rounded-full bg-green-500"></span>
+              <span className="h-3 w-3 rounded-full bg-green-500" />
               <span className="text-sm">Intermediate</span>
             </div>
             <div className="flex items-center gap-2">
-              <span className="h-3 w-3 rounded-full bg-yellow-500"></span>
+              <span className="h-3 w-3 rounded-full bg-yellow-500" />
               <span className="text-sm">Advanced</span>
             </div>
             <div className="flex items-center gap-2">
-              <span className="h-3 w-3 rounded-full bg-red-500"></span>
+              <span className="h-3 w-3 rounded-full bg-red-500" />
               <span className="text-sm">Expert</span>
             </div>
           </div>
