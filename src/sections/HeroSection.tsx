@@ -57,13 +57,12 @@ const HeroSection = () => {
     <img
       src="/profile.jpg"
       alt="Yashraj Profile"
-      className="w-full h-full object-cover object-[50%_15%]"
+      className="w-full h-full object-cover object-[50%_22%]"
     />
   </div>
 
   <div className="absolute inset-0 rounded-full bg-primary/10 blur-2xl animate-pulse -z-10"></div>
 </div>
-
 
       <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
         <a href="#about" className="text-primary" aria-label="Scroll to About section">
