@@ -53,17 +53,16 @@ const HeroSection = () => {
         </div>
 
         <div className="relative lg:flex items-center justify-center hidden">
-  <div className="h-[28rem] w-[22rem] rounded-3xl overflow-hidden 
-          border border-primary/20 shadow-xl shadow-primary/20
-          bg-white/5 backdrop-blur-md">
-    <img
-      src="/profile.jpg"
-      alt="Profile"
-      className="w-full h-full object-contain"
-    />
-  </div>
-  <div className="absolute top-0 left-0 h-full w-full rounded-3xl bg-primary/10 animate-pulse blur-xl"></div>
-</div>
+          <div className="rounded-full overflow-hidden h-80 w-80 border-4 border-primary/20 shadow-xl shadow-primary/20 animate-float">
+            <img
+              src="./profile.jpg"
+              alt="Profile"
+              className="object-cover w-full h-full"
+            />
+          </div>
+          <div className="absolute top-0 left-0 h-full w-full rounded-full bg-primary/10 animate-pulse blur-xl"></div>
+        </div>
+      </div>
 
       <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
         <a href="#about" className="text-primary" aria-label="Scroll to About section">
