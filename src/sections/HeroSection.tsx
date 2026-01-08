@@ -52,23 +52,17 @@ const HeroSection = () => {
           </div>
         </div>
 
-        <div className="relative hidden lg:flex items-center justify-center">
-  <div
-    className="relative h-[28rem] w-[22rem] rounded-3xl overflow-hidden
-               border border-primary/20 shadow-xl shadow-primary/20
-               bg-white/5 backdrop-blur-md z-10"
-  >
+        <div className="relative lg:flex items-center justify-center hidden">
+  <div className="h-[28rem] w-[22rem] rounded-3xl overflow-hidden 
+          border border-primary/20 shadow-xl shadow-primary/20
+          bg-white/5 backdrop-blur-md">
     <img
       src="/profile.jpg"
       alt="Profile"
       className="w-full h-full object-contain"
     />
   </div>
-
-  <div
-    className="absolute inset-0 rounded-3xl
-               bg-primary/10 blur-2xl animate-pulse -z-10"
-  ></div>
+  <div className="absolute top-0 left-0 h-full w-full rounded-3xl bg-primary/10 animate-pulse blur-xl"></div>
 </div>
 
       <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
