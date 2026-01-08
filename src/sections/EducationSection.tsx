@@ -29,10 +29,10 @@ const EducationSection = () => {
       degree: 'B.Tech in Computer Science & Engineering',
       institution: 'N.K.Orchid College of Engg. & Tech.',
       location: 'Solapur, Maharashtra',
-      period: '2022 - 2026 (Pursuing)',
-      performance: 'GPA: 7.52/10.0',
+      period: '2022 - 2026',
+      performance: 'GPA: 7.80/10.0',
       description: [
-        'Specialized in core Computer Science topics such as algorithms, databases, and software engineering',
+        'Specialized in core Computer Science topics such as data analytics, databases, and software engineering',
         'Engaged in projects and coursework focusing on system design and development',
         'Actively involved in tech-related workshops and events',
       ],
