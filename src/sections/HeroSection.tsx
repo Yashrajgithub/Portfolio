@@ -55,7 +55,7 @@ const HeroSection = () => {
         <div className="relative lg:flex items-center justify-center hidden">
           <div className="rounded-full overflow-hidden h-80 w-80 border-4 border-primary/20 shadow-xl shadow-primary/20 animate-float">
             <img
-              src="./profile.png"
+              src="./profile.jpg"
               alt="Profile"
               className="object-cover w-full h-full"
             />
