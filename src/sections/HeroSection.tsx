@@ -53,15 +53,14 @@ const HeroSection = () => {
         </div>
 
         <div className="relative lg:flex items-center justify-center hidden">
-          <div className="h-80 w-80 rounded-full overflow-hidden border-4 border-primary/20 shadow-xl shadow-primary/20 animate-float transition-transform duration-500 hover:scale-105">
+          <div className="rounded-full overflow-hidden h-80 w-80 border-4 border-primary/20 shadow-xl shadow-primary/20 animate-float">
             <img
-              src="/profile.jpg"
-              alt="Yashraj Profile"
-              className="w-full h-full object-cover object-[50%_22%]"
+              src="./profile.png"
+              alt="Profile"
+              className="object-cover w-full h-full"
             />
           </div>
-
-          <div className="absolute inset-0 rounded-full bg-primary/10 blur-2xl animate-pulse -z-10"></div>
+          <div className="absolute top-0 left-0 h-full w-full rounded-full bg-primary/10 animate-pulse blur-xl"></div>
         </div>
       </div>
 
