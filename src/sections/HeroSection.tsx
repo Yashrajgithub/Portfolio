@@ -28,11 +28,11 @@ const HeroSection = () => {
             <span className="text-foreground">Yashraj</span>
           </h1>
           <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-semibold mb-6 text-secondary">
-            I build creative solutions with code.
+            I create data-driven solutions that deliver clarity and impact.
           </h2>
           <p className="text-lg mb-8 text-secondary max-w-xl">
-            I'm a dedicated software engineer, passionate about creating impactful and user-centric solutions.
-            Currently, I focus on developing AI-driven applications.
+            I’m a dedicated engineer focused on Data Analytics and AI, transforming raw data into meaningful insights using analytical and visualization tools, 
+            with working experience in software testing and development to ensure reliable, high-performance applications.
           </p>
           <div className="flex flex-wrap gap-4">
             <a href="#projects">
