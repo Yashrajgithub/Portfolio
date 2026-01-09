@@ -1,4 +1,3 @@
-
 import SectionHeading from '@/components/SectionHeading';
 import ScrollReveal from '@/components/ScrollReveal';
 
@@ -18,7 +17,7 @@ const AboutSection = () => {
             <div className="relative">
               <div className="rounded-lg overflow-hidden border-4 border-primary/20">
                 <img
-                  src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158"
+                  src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1200&q=80"
                   alt="About Me"
                   className="w-full h-auto object-cover"
                 />
@@ -30,23 +29,25 @@ const AboutSection = () => {
           <ScrollReveal animation="fade-in-left" delay={200}>
             <div className="space-y-6">
               <h3 className="font-heading text-2xl font-semibold">
-                A passionate Software Developer & AI Explorer
+                A data-focused engineer with a passion for AI-driven insights
               </h3>
 
               <p className="text-secondary">
-                I'm a full-stack developer passionate about building intelligent,
-                scalable, and user-driven AI applications. I'm always exploring new
-                technologies to solve real-world problems.
-              </p>
-              <p className="text-secondary">
-                I explore technology with a focus on AI and intuitive digital experiences, 
-                building solutions across AI, data, and web development.
+                I’m a data-driven engineer focused on extracting meaningful insights
+                from data using analytics, visualization, and intelligent models.
+                My work centers on transforming raw data into clear, actionable outcomes.
               </p>
 
               <p className="text-secondary">
-                When I’m not working on tech projects, you’ll find me discovering new
-                destinations, experiencing different cultures, and immersing myself in
-                unique travel adventures.
+                I work extensively with data analytics and AI, building solutions that
+                combine structured analysis, machine learning concepts, and intuitive
+                visual storytelling to support informed decision-making.
+              </p>
+
+              <p className="text-secondary">
+                Alongside data and AI, I have working experience in software development
+                and testing, ensuring systems are reliable, accurate, and well-validated
+                across real-world use cases.
               </p>
 
               <div className="grid grid-cols-2 gap-4">
