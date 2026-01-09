@@ -1,6 +1,11 @@
-
 import { useState } from 'react';
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from '@/components/ui/dialog';
 import SectionHeading from '@/components/SectionHeading';
 import ScrollReveal from '@/components/ScrollReveal';
 import { Badge } from '@/components/ui/badge';
@@ -17,16 +22,19 @@ interface Project {
   codeUrl: string;
 }
 
+const INITIAL_VISIBLE_PROJECTS = 6;
+
 const ProjectsSection = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-  const [filter, setFilter] = useState<string>('all');
-  
+  const [showAll, setShowAll] = useState(false);
+
   const projects: Project[] = [
     {
       id: 1,
       title: 'Collabify: Instant Collaboration',
       description: 'A real-time platform for seamless team communication and collaboration.',
-      longDescription: 'A robust real-time collaboration platform built with React, Node.js, and Socket.IO. Features include instant messaging, video calls, document sharing, real-time notifications, and team management. The app is fully responsive, ensuring smooth communication and collaboration on any device.',
+      longDescription:
+        'A robust real-time collaboration platform built with React, Node.js, and Socket.IO. Features include instant messaging, video calls, document sharing, real-time notifications, and team management.',
       image: './Real_time_collab.png',
       tags: ['React', 'Node.js', 'Socket.io', 'MongoDB', 'Express', 'WebRTC'],
       demoUrl: 'https://realtime-collab-tool.vercel.app/',
@@ -36,59 +44,95 @@ const ProjectsSection = () => {
       id: 2,
       title: 'Secure Chat App',
       description: 'A real-time secure messaging application with end-to-end encryption.',
-      longDescription: 'A secure messaging app built using Node.js, Express, MongoDB, and Socket.IO. The app ensures real-time communication with encrypted messages using AES-256 and offers features like group chats, message delivery status, and user authentication. It incorporates WebSocket-based real-time updates and Cryptr for encryption to maintain privacy.',
+      longDescription:
+        'A secure messaging app built using Node.js, Express, MongoDB, and Socket.IO with AES-256 encryption.',
       image: './Chatify app.png',
       tags: ['Node.js', 'Express', 'MongoDB', 'Socket.io', 'AES-256'],
       demoUrl: 'https://github.com/Yashrajgithub/',
-      codeUrl: 'https://github.com/Yashrajgithub/'
+      codeUrl: 'https://github.com/Yashrajgithub/',
     },
     {
       id: 3,
       title: 'MathLang Compiler',
-      description: 'AI-powered web app that converts natural language math expressions into JavaScript code.',
-      longDescription: 'MathLang Compiler is an AI-powered web application that translates natural language mathematical expressions into executable JavaScript code. Built with React, TypeScript, and Vite, it enables seamless code generation and execution from plain English inputs. The app showcases the power of language processing in computational logic, transforming plain English math into executable code.',
+      description: 'AI-powered web app that converts natural language math into JavaScript code.',
+      longDescription:
+        'An AI-powered application that translates natural language mathematical expressions into executable JavaScript code.',
       image: './Mathlang_Compiler.png',
-      tags: ['React', 'Natural Language Processing',],
+      tags: ['React', 'Natural Language Processing'],
       demoUrl: 'https://math-lang-compiler.vercel.app/',
-      codeUrl: 'https://github.com/Yashrajgithub/MathLang-Compiler'
+      codeUrl: 'https://github.com/Yashrajgithub/MathLang-Compiler',
     },
     {
-      id: 4,
+  id: 4,
+  title: 'Energy Consumption Analysis',
+  description: 'Data analytics project analyzing energy usage patterns and efficiency trends.',
+  longDescription:
+    'This project focuses on analyzing large-scale energy consumption data to identify usage patterns, peak demand hours, and efficiency opportunities. Using tools like Power BI, Excel, and Power Query, interactive dashboards were built to visualize trends, compare renewable vs non-renewable sources, and generate insights for sustainability and cost optimization.',
+  image: './Dashboard1.png',
+  tags: ['Power BI', 'Excel', 'Data Analytics', 'Visualization'],
+  demoUrl: 'https://github.com/Yashrajgithub/Energy-Consumption-Analysis-Using-Power-Bi',
+  codeUrl: 'https://github.com/Yashrajgithub/Energy-Consumption-Analysis-Using-Power-Bi',
+},
+    {
+  id: 5,
+  title: 'Sales Performance Dashboard',
+  description: 'Interactive dashboard for analyzing sales trends and business performance.',
+  longDescription:
+    'A data-driven dashboard designed to analyze sales performance across regions, products, and time periods. The project uses Excel, Power BI, and Tableau to clean, transform, and visualize sales data, enabling stakeholders to track KPIs, identify high-performing segments, and make informed business decisions.',
+  image: './Dashboard2.png',
+  tags: ['Power BI', 'Tableau', 'Excel', 'Data Analytics'],
+  demoUrl: 'https://github.com/Yashrajgithub/Sales-Performance-Dashboard-Using-PowerBI',
+  codeUrl: 'https://github.com/Yashrajgithub/Sales-Performance-Dashboard-Using-PowerBI',
+},
+    {
+  id: 6,
+  title: 'HomeMatch AI',
+  description: 'AI-powered property recommendation system for personalized home matching.',
+  longDescription:
+    'HomeMatch AI is an intelligent recommendation system that suggests properties based on user preferences, budget, location, and lifestyle factors. The system uses machine learning techniques to analyze user behavior and property data, delivering personalized housing recommendations. It improves decision-making for buyers and renters by combining data analytics, AI models, and user-centric insights.',
+  image: './Homematch.png',
+  tags: ['Python', 'AI', 'Machine Learning', 'Data Analytics'],
+  demoUrl: 'https://homematch-ai.vercel.app/',
+  codeUrl: 'https://github.com/Yashrajgithub/Homematch-AI',
+},
+    {
+      id: 7,
       title: 'Live Call Emotion AI',
-      description: 'Real-time emotion recognition system for video calls using facial expression analysis.',
-      longDescription: 'A real-time emotion recognition system built with OpenCV, Dlib, and TensorFlow for facial expression analysis. The app detects emotions such as happiness, sadness, surprise, and anger during video calls, providing real-time feedback. It uses deep learning models to identify emotions from facial landmarks and integrates with video calling platforms for seamless user interaction.',
+      description: 'Real-time emotion recognition system for video calls.',
+      longDescription:
+        'Emotion recognition system using OpenCV, Dlib, and deep learning to analyze facial expressions in real time.',
       image: './EmotionRecog.png',
       tags: ['OpenCV', 'Dlib'],
       demoUrl: 'https://tinyurl.com/mr2ftj8p',
-      codeUrl: 'https://github.com/Yashrajgithub/Emotion-Recognization-and-Analysis'
-    },    
+      codeUrl: 'https://github.com/Yashrajgithub/Emotion-Recognization-and-Analysis',
+    },
     {
-      id: 5,
+      id: 8,
       title: 'Crop Prediction',
-      description: 'AI-driven model to predict optimal crops based on soil and weather conditions.',
-      longDescription: 'Crop Prediction is an AI-driven web application that uses machine learning algorithms to predict the most suitable crops for a given region based on soil type, weather conditions, and historical data. Built with Python, TensorFlow, and Flask, the model provides real-time crop suggestions to farmers, improving yield prediction and resource management.',
+      description: 'AI-driven model to predict optimal crops.',
+      longDescription:
+        'Machine learning-based system that predicts suitable crops using soil and weather data.',
       image: './CropPredict.png',
       tags: ['Python', 'AI', 'Machine Learning'],
       demoUrl: 'https://tinyurl.com/49wvthkh',
-      codeUrl: 'https://github.com/Yashrajgithub/Crop-Recommendation'
-    },    
+      codeUrl: 'https://github.com/Yashrajgithub/Crop-Recommendation',
+    },
     {
-      id: 6,
+      id: 9,
       title: 'Crop Disease Detection',
-      description: 'AI-based system that detects crop diseases from leaf images using deep learning.',
-      longDescription: 'Crop Disease Detection is an AI-powered web application that leverages deep learning to identify plant diseases through image analysis. Built with Python, TensorFlow, and OpenCV, it enables farmers to upload leaf images and get instant diagnosis along with treatment suggestions. The system improves early disease detection, reduces crop loss, and promotes precision agriculture.',
+      description: 'Deep learning system to detect crop diseases from images.',
+      longDescription:
+        'An AI-powered system that identifies plant diseases using image classification.',
       image: './Crop_Disease_Prediction.png',
       tags: ['Python', 'Deep Learning'],
       demoUrl: 'https://tinyurl.com/9m5jzb3c',
-      codeUrl: 'https://github.com/Yashrajgithub/Crop-Disease-Identification-Model'
-    },    
+      codeUrl: 'https://github.com/Yashrajgithub/Crop-Disease-Identification-Model',
+    }
   ];
-  
-  const allTags = Array.from(new Set(projects.flatMap(project => project.tags)));
-  
-  const filteredProjects = filter === 'all' 
-    ? projects 
-    : projects.filter(project => project.tags.includes(filter));
+
+  const visibleProjects = showAll
+    ? projects
+    : projects.slice(0, INITIAL_VISIBLE_PROJECTS);
 
   return (
     <section id="projects" className="bg-muted/20 section-padding">
@@ -99,49 +143,20 @@ const ProjectsSection = () => {
             subtitle="Check out some of my recent work"
           />
         </ScrollReveal>
-        
-        <ScrollReveal animation="fade-in-up" delay={100}>
-          <div className="flex flex-wrap justify-center gap-4 mb-12">
-            <button
-              onClick={() => setFilter('all')}
-              className={`px-4 py-2 rounded-md transition-all ${
-                filter === 'all'
-                  ? 'bg-primary text-white'
-                  : 'bg-card hover:bg-card/80 text-secondary hover:text-foreground'
-              }`}
-            >
-              All Projects
-            </button>
-            
-            {allTags.map((tag) => (
-              <button
-                key={tag}
-                onClick={() => setFilter(tag)}
-                className={`px-4 py-2 rounded-md transition-all ${
-                  filter === tag
-                    ? 'bg-primary text-white'
-                    : 'bg-card hover:bg-card/80 text-secondary hover:text-foreground'
-                }`}
-              >
-                {tag}
-              </button>
-            ))}
-          </div>
-        </ScrollReveal>
-        
+
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProjects.map((project, index) => (
+          {visibleProjects.map((project, index) => (
             <ScrollReveal
               key={project.id}
               animation="fade-in-up"
               delay={100 + index * 50}
             >
-              <div 
-                className="card-hover overflow-hidden rounded-lg bg-card shadow-lg"
+              <div
+                className="card-hover overflow-hidden rounded-lg bg-card shadow-lg cursor-pointer"
                 onClick={() => setSelectedProject(project)}
               >
-                <div className="relative overflow-hidden h-48 cursor-pointer group">
-                  <img 
+                <div className="relative h-48 overflow-hidden group">
+                  <img
                     src={project.image}
                     alt={project.title}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
@@ -150,32 +165,22 @@ const ProjectsSection = () => {
                     <span className="text-white font-medium">View Details</span>
                   </div>
                 </div>
-                
+
                 <div className="p-6">
-                  <h3 className="font-heading text-xl font-semibold mb-2">{project.title}</h3>
-                  <p className="text-secondary mb-4 line-clamp-2">{project.description}</p>
-                  
+                  <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
+                  <p className="text-secondary mb-4 line-clamp-2">
+                    {project.description}
+                  </p>
+
                   <div className="flex flex-wrap gap-2 mb-4">
-                    {project.tags.slice(0, 3).map((tag) => (
+                    {project.tags.slice(0, 3).map(tag => (
                       <Badge key={tag} variant="outline" className="border-primary/40 text-primary">
                         {tag}
                       </Badge>
                     ))}
-                    {project.tags.length > 3 && (
-                      <Badge variant="outline" className="border-primary/40 text-primary">
-                        +{project.tags.length - 3}
-                      </Badge>
-                    )}
                   </div>
-                  
-                  <Button 
-                    variant="outline"
-                    className="w-full button-outline"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      setSelectedProject(project);
-                    }}
-                  >
+
+                  <Button variant="outline" className="w-full">
                     View Project
                   </Button>
                 </div>
@@ -183,45 +188,50 @@ const ProjectsSection = () => {
             </ScrollReveal>
           ))}
         </div>
-        
-        <Dialog open={selectedProject !== null} onOpenChange={() => setSelectedProject(null)}>
+
+        {projects.length > INITIAL_VISIBLE_PROJECTS && (
+          <div className="flex justify-center mt-12">
+            <Button
+              onClick={() => setShowAll(prev => !prev)}
+              variant="outline"
+              className="button-outline"
+            >
+              {showAll ? 'Show Less' : 'See More Projects'}
+            </Button>
+          </div>
+        )}
+
+        <Dialog open={!!selectedProject} onOpenChange={() => setSelectedProject(null)}>
           {selectedProject && (
             <DialogContent className="max-w-3xl">
               <DialogHeader>
-                <DialogTitle className="text-2xl font-heading">{selectedProject.title}</DialogTitle>
-                <DialogDescription className="text-secondary mt-2">
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {selectedProject.tags.map((tag) => (
-                      <Badge key={tag} variant="outline" className="border-primary/40 text-primary">
+                <DialogTitle>{selectedProject.title}</DialogTitle>
+                <DialogDescription>
+                  <div className="flex flex-wrap gap-2 mt-2">
+                    {selectedProject.tags.map(tag => (
+                      <Badge key={tag} variant="outline">
                         {tag}
                       </Badge>
                     ))}
                   </div>
                 </DialogDescription>
               </DialogHeader>
-              
-              <div className="space-y-4">
-                <div className="rounded-md overflow-hidden">
-                  <img 
-                    src={selectedProject.image} 
-                    alt={selectedProject.title} 
-                    className="w-full h-auto object-cover"
-                  />
-                </div>
-                
-                <div>
-                  <h4 className="font-medium mb-2">Project Overview</h4>
-                  <p className="text-secondary">{selectedProject.longDescription}</p>
-                </div>
-                
-                <div className="flex flex-wrap gap-4 pt-4">
-                  <a href={selectedProject.demoUrl} target="_blank" rel="noopener noreferrer">
-                    <Button className="button-primary">Live Demo</Button>
-                  </a>
-                  <a href={selectedProject.codeUrl} target="_blank" rel="noopener noreferrer">
-                    <Button variant="outline" className="button-outline">View Code</Button>
-                  </a>
-                </div>
+
+              <img
+                src={selectedProject.image}
+                alt={selectedProject.title}
+                className="rounded-md"
+              />
+
+              <p className="text-secondary">{selectedProject.longDescription}</p>
+
+              <div className="flex gap-4 pt-4">
+                <a href={selectedProject.demoUrl} target="_blank">
+                  <Button>Live Demo</Button>
+                </a>
+                <a href={selectedProject.codeUrl} target="_blank">
+                  <Button variant="outline">View Code</Button>
+                </a>
               </div>
             </DialogContent>
           )}
