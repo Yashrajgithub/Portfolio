@@ -227,7 +227,7 @@ const ContactSection = () => {
 
                 <div className="flex flex-wrap gap-4">
                   <a
-                    href="https://linkedin.com/in/yashraj-kalshetti-820408222/"
+                    href="https://www.linkedin.com/in/yashrajkalshetti/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="bg-muted/30 p-3 rounded-full hover:bg-primary/20 transition-colors"
