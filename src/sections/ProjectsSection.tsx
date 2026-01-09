@@ -52,18 +52,7 @@ const ProjectsSection = () => {
       codeUrl: 'https://github.com/Yashrajgithub/',
     },
     {
-      id: 3,
-      title: 'MathLang Compiler',
-      description: 'AI-powered web app that converts natural language math into JavaScript code.',
-      longDescription:
-        'An AI-powered application that translates natural language mathematical expressions into executable JavaScript code.',
-      image: './Mathlang_Compiler.png',
-      tags: ['React', 'Natural Language Processing'],
-      demoUrl: 'https://math-lang-compiler.vercel.app/',
-      codeUrl: 'https://github.com/Yashrajgithub/MathLang-Compiler',
-    },
-    {
-  id: 4,
+  id: 3,
   title: 'Energy Consumption Analysis',
   description: 'Data analytics project analyzing energy usage patterns and efficiency trends.',
   longDescription:
@@ -74,7 +63,7 @@ const ProjectsSection = () => {
   codeUrl: 'https://github.com/Yashrajgithub/Energy-Consumption-Analysis-Using-Power-Bi',
 },
     {
-  id: 5,
+  id: 4,
   title: 'Sales Performance Dashboard',
   description: 'Interactive dashboard for analyzing sales trends and business performance.',
   longDescription:
@@ -85,7 +74,7 @@ const ProjectsSection = () => {
   codeUrl: 'https://github.com/Yashrajgithub/Sales-Performance-Dashboard-Using-PowerBI',
 },
     {
-  id: 6,
+  id: 5,
   title: 'HomeMatch AI',
   description: 'AI-powered property recommendation system for personalized home matching.',
   longDescription:
@@ -95,6 +84,17 @@ const ProjectsSection = () => {
   demoUrl: 'https://homematch-ai.vercel.app/',
   codeUrl: 'https://github.com/Yashrajgithub/Homematch-AI',
 },
+    {
+      id: 6,
+      title: 'MathLang Compiler',
+      description: 'AI-powered web app that converts natural language math into JavaScript code.',
+      longDescription:
+        'An AI-powered application that translates natural language mathematical expressions into executable JavaScript code.',
+      image: './Mathlang_Compiler.png',
+      tags: ['React', 'Natural Language Processing'],
+      demoUrl: 'https://math-lang-compiler.vercel.app/',
+      codeUrl: 'https://github.com/Yashrajgithub/MathLang-Compiler',
+    },
     {
       id: 7,
       title: 'Live Call Emotion AI',
