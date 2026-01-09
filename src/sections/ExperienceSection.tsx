@@ -44,8 +44,8 @@ const ExperienceSection = () => {
       <div className="container-wide">
         <ScrollReveal>
           <SectionHeading
-            title="Internships & Trainings"
-            subtitle="My journey through internships and skill development"
+            title="Experience"
+            subtitle="Hands-on industry experience and professional engagements"
           />
         </ScrollReveal>
 
