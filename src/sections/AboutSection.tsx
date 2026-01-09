@@ -17,7 +17,7 @@ const AboutSection = () => {
             <div className="relative">
               <div className="rounded-lg overflow-hidden border-4 border-primary/20">
                 <img
-                  src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1200&q=80"
+                  src="https://unsplash.com/photos/laptop-computer-on-glass-top-table-hpjSkU2UYSU"
                   alt="About Me"
                   className="w-full h-auto object-cover"
                 />
